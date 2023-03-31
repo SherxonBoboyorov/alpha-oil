@@ -41,11 +41,11 @@ class SliderController extends Controller
     public function store(CreateSlider $request)
     {
         $data = $request->all();
-        $data['image'] = $this->uploadImage($request);
+        $data['image'] = Slider::uploadImage($request);
         if (Slider::create($data)) {
-            return redirect()->route('slider.index')->with('success', 'Slider added successfully');
+            return redirect()->route('slider.index')->with('message', 'Slider added successfully');
         }
-        return redirect()->route('slider.index')->back()->with('error', 'Error adding slider');
+        return redirect()->route('slider.index')->back()->with('message', 'Error adding slider');
     }
 
     /**
@@ -67,7 +67,8 @@ class SliderController extends Controller
      */
     public function edit($id)
     {
-        //
+        $slider = Slider::find($id);
+        return view('admin.slider.edit', compact('slider'));
     }
 
     /**
@@ -79,7 +80,16 @@ class SliderController extends Controller
      */
     public function update(UpdateSlider $request, $id)
     {
-        //
+        $slider = Slider::find($id);
+
+        $data = $request->all();
+        $data['image'] = Slider::updateImage($request, $slider);
+
+        if ($slider->update($data)) {
+            return redirect()->route('slider.index')->with('message', 'changed successfully!!!');
+        }
+
+        return redirect()->route('slider.index')->with('message', 'changed no successfully!!!');
     }
 
     /**
@@ -90,6 +100,20 @@ class SliderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (!Slider::find($id)) {
+            return redirect()->route('slider.index')->with('message', "Slider not found");
+        }
+
+        $slider = Slider::find($id);
+
+        if (File::exists(public_path() . $slider->image)) {
+            File::delete(public_path() . $slider->image);
+        }
+
+        if ($slider->delete()) {
+            return redirect()->route('slider.index')->with('message', "Slider deleted successfully");
+        }
+
+        return redirect()->route('slider.index')->with('message', "Unable to delete slider");
     }
 }

@@ -14,6 +14,8 @@
                 <div class="clearfix"></div>
             </div>
 
+            <a href="{{ route('slider.create')}}" class="btn bg-success mb-2">Add slider</a>
+
             <div class="card">
                 <div class="card-body">
 
@@ -36,7 +38,7 @@
                             <th>Title [Uzbek]</th>
                             <th>Title [Russian]</th>
                             <th>Title [Engish]</th>
-                            <th colspan="2" style="width: 2%;">Actions</th>
+                            <th colspan="2" style="width: 2%; border-radius: 5px">Actions</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -50,16 +52,16 @@
                                 <td>{{ $slider->title_uz }}</td>
                                 <td>{{ $slider->title_en }}</td>
                                 <td>
-                                    <a href="{{ route('slider.edit', $slider->id) }}" class="btn btn-info btn-icon">
-                                        <i class="fa fa-edit"></i>
+                                    <a href="{{ route('slider.edit', $slider->id) }}" class="btn btn-primary btn-icon">
+                                        <i class="fa fa-edit">Edit</i>
                                     </a>
                                 </td>
                                 <td>
                                     <form action="{{ route('slider.destroy', $slider->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-warning btn-icon">
-                                            <i class="fa fa-trash"></i>
+                                        <button type="submit" class="btn btn-danger btn-icon">
+                                            <i class="fa fa-trash">Delete</i>
                                         </button>
                                     </form>
                                 </td>

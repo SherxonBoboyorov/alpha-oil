@@ -23,26 +23,50 @@ class Slider extends Model
         'link',
     ];
 
+    public static function uploadImage($request): ?string
+    {
+        if ($request->hasFile('image')) {
 
+            self::checkDirectory();
 
-    public function uploadImage(): string {
-        $image = request()->file('image');
-        $image->store('uploads/images', 'public');
-        return $image->hashName();
+            $request->file('image')
+                ->move(
+                    public_path() . '/upload/slider/' . date('d-m-Y'),
+                    $request->file('image')->getClientOriginalName()
+                );
+            return '/upload/slider/' . date('d-m-Y') . '/' . $request->file('image')->getClientOriginalName();
+        }
+
+        return null;
     }
 
-    public function updateImage($image): string {
-        if (request()->file('image') != null) {
-            $this->removeImage();
-            return $this->uploadImage();
+    public static function updateImage($request, $slider): string
+    {
+        if ($request->hasFile('image')) {
+            if (File::exists(public_path() . $slider->image)) {
+                File::delete(public_path() . $slider->image);
+            }
+
+            self::checkDirectory();
+
+            $request->file('image')
+                ->move(
+                    public_path() . '/upload/slider/' . date('d-m-Y'),
+                    $request->file('image')->getClientOriginalName()
+                );
+            return '/upload/slider/' . date('d-m-Y') . '/' . $request->file('image')->getClientOriginalName();
         }
-        return $image;
+
+        return $slider->image;
     }
 
-    public function removeImage() {
-        if (File::exists('storage/uploads/images/' . $this->image)) {
-            File::delete('storage/uploads/images/' . $this->image);
+    private static function checkDirectory(): bool
+    {
+        if (!File::exists(public_path() . '/upload/slider/' . date('d-m-Y'))) {
+            File::makeDirectory(public_path() . '/upload/slider/' . date('d-m-Y'), $mode = 0777, true, true);
         }
+
+        return true;
     }
 
 }
