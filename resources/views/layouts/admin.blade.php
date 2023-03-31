@@ -37,7 +37,7 @@
 
                     {{-- start  --}}
                        <li class="nav-item">
-                        <a href="{{ route('slider.index') }}" class="nav-link">
+                        <a href="#!" class="nav-link">
                         <i class="nav-icon"></i>
                         <p>
                             Слайдер
