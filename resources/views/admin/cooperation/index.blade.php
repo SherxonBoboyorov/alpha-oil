@@ -14,7 +14,7 @@
                 <div class="clearfix"></div>
             </div>
 
-            <a href="{{ route('coopartation.create')}}" class="btn bg-success mb-2">Add Collaboration process +</a>
+            <a href="{{ route('cooperation.create')}}" class="btn bg-success mb-2">Add Collaboration process +</a>
 
             <div class="card">
                 <div class="card-body">

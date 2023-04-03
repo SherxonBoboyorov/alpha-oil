@@ -44,7 +44,7 @@ class CooperationController extends Controller
         $data['image'] = Cooperation::uploadImage($request);
 
         if(Cooperation::create($data)) {
-            return redirect()->route('admin.cooperation.index')->with('massage', 'Collaboration process created successfully');
+            return redirect()->route('cooperation.index')->with('massage', 'Collaboration process created successfully');
         }
         return redirect()->route('cooperation.index')->with('massage', 'Unable to create Collaboration process');
 
