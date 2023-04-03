@@ -53,16 +53,16 @@
                             <td>{{ $article->title_ru }}</td>
                             <td>{{ $article->title_en }}</td>
                             <td>
-                                <a href="{{ route('article.edit', $article->id) }}" class="btn btn-info btn-icon">
-                                    <i class="fa fa-edit"></i>
+                                <a href="{{ route('article.edit', $article->id) }}" class="btn btn-primary btn-icon">
+                                    <i class="fa fa-edit">Edit</i>
                                 </a>
                             </td>
                             <td>
                                 <form action="{{ route('article.destroy', $article->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-warning btn-icon">
-                                        <i class="fa fa-trash"></i>
+                                    <button type="submit" class="btn btn-danger btn-icon">
+                                        <i class="fa fa-trash">Delete</i>
                                     </button>
                                 </form>
                             </td>

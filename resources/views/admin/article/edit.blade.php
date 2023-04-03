@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="page-title-box">
-                    <h4 class="page-title">Edit News</h4>
+                    <h4 class="page-title">Edit Blog</h4>
                 </div>
             </div>
             <div class="clearfix"></div>
@@ -123,7 +123,7 @@
 
                     <div class="row" style="margin-top: 15px">
                         <div class="col-md-12">
-                            <button type="submit" class="btn btn-success btn-block">Save</button>
+                            <button type="submit" class="btn btn-success btn-block">Update</button>
                         </div>
                     </div>
                 </div>

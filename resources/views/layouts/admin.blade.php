@@ -38,7 +38,7 @@
                     {{-- start  --}}
                        <li class="nav-item">
                         <a href="{{ route('slider.index') }}" class="nav-link">
-                        <i class="nav-icon"></i>
+                        <i class="nav-icon"></i>`
                         <p>
                             Sliders
                              <i class="right fas fa-angle-left"></i>
