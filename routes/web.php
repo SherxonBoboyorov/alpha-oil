@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\PartnerController;
+use App\Http\Controllers\Admin\CooperationController;
 use UniSharp\Laravel\LaravelFilemanager\Lfm;
 
 
@@ -25,6 +26,7 @@ Route::middleware(['role:admin'])->prefix('dashboard')->group(static function ()
         'page' => PageController::class,
         'article' => ArticleController::class,
         'partner' => PartnerController::class,
+        'cooperation' => CooperationController::class,
     ]);
 });
 

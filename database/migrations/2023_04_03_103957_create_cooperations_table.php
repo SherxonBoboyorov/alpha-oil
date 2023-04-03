@@ -15,6 +15,13 @@ return new class extends Migration
     {
         Schema::create('cooperations', function (Blueprint $table) {
             $table->id();
+
+            $table->string('image');
+
+            $table->string('title_ru');
+            $table->string('title_uz');
+            $table->string('title_en');
+
             $table->timestamps();
         });
     }
