@@ -72,6 +72,19 @@
                     {{-- end  --}}
 
 
+                      {{-- start  --}}
+                      <li class="nav-item">
+                        <a href="{{ route('partner.index') }}" class="nav-link">
+                        <i class="nav-icon"></i>
+                        <p>
+                            Partners
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                        </a>
+                     </li>
+                    {{-- end  --}}
+
+
 
                 </ul>
             </nav>

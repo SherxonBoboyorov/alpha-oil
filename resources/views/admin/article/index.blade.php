@@ -14,7 +14,7 @@
             <div class="clearfix"></div>
         </div>
 
-             <a href="{{ route('article.create')}}" class="btn bg-success mb-2">Add Blogs</a>
+             <a href="{{ route('article.create')}}" class="btn bg-success mb-2">Add Blogs +</a>
 
 
         <div class="card">

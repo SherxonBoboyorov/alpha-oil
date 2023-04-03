@@ -14,7 +14,7 @@
                 <div class="clearfix"></div>
             </div>
 
-            <a href="{{ route('slider.create')}}" class="btn bg-success mb-2">Add slider</a>
+            <a href="{{ route('slider.create')}}" class="btn bg-success mb-2">Add Slider +</a>
 
             <div class="card">
                 <div class="card-body">
