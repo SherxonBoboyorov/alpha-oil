@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\CooperationController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\RefineryController;
+use App\Http\Controllers\Admin\OptionsController;
 use UniSharp\Laravel\LaravelFilemanager\Lfm;
 
 
@@ -31,6 +32,7 @@ Route::middleware(['role:admin'])->prefix('dashboard')->group(static function ()
         'cooperation' => CooperationController::class,
         'service' => ServiceController::class,
         'refinery' => RefineryController::class,
+        'options' => OptionsController::class,
     ]);
 });
 
