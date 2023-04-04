@@ -38,7 +38,7 @@
                     {{-- start  --}}
                        <li class="nav-item">
                         <a href="{{ route('slider.index') }}" class="nav-link">
-                        <i class="nav-icon"></i>`
+                        <i class="nav-icon"></i>
                         <p>
                             Sliders
                              <i class="right fas fa-angle-left"></i>
@@ -91,6 +91,18 @@
                         <i class="nav-icon"></i>
                         <p>
                             Collaboration process
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                        </a>
+                     </li>
+                    {{-- end  --}}
+
+                    {{-- start  --}}
+                    <li class="nav-item">
+                        <a href="{{ route('service.index') }}" class="nav-link">
+                        <i class="nav-icon"></i>
+                        <p>
+                            Our services
                             <i class="right fas fa-angle-left"></i>
                         </p>
                         </a>

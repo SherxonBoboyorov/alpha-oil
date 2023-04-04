@@ -29,7 +29,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.service.create');
     }
 
     /**
@@ -40,7 +40,12 @@ class ServiceController extends Controller
      */
     public function store(CreateService $request)
     {
-        //
+        $data = $request->all();
+        $data['image'] = Service::uploadImage($request);
+        if (Service::create($data)) {
+            return redirect()->route('service.index')->with('message', 'Service created successfully');
+        }
+        return redirect()->route('service.index')->with('message', 'Unable to created Service');
     }
 
     /**
@@ -62,7 +67,8 @@ class ServiceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $service = Service::find($id);
+        return view('admin.service.edit', compact('service'));
     }
 
     /**
@@ -74,7 +80,20 @@ class ServiceController extends Controller
      */
     public function update(UpdateService $request, $id)
     {
-        //
+        if (!Service::find($id)) {
+            return redirect()->route('service.index')->with('message', "service not fount");
+        }
+
+        $service = Service::find($id);
+
+        $data = $request->all();
+        $data['image'] = Service::updateImage($request, $service);
+
+
+        if ($service->update($data)) {
+            return redirect()->route('service.index')->with('message', "Service changed successfully");
+        }
+        return redirect()->route('service.index')->with('message', "Unable to update Service");
     }
 
     /**
@@ -85,6 +104,19 @@ class ServiceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (!Service::find($id)) {
+            return redirect()->route('service.index')->with('message', "Service not found");
+        }
+
+        $service = Service::find($id);
+
+        if (File::exists(public_path() . $service->image)) {
+            File::delete(public_path() . $service->image);
+        }
+
+        if ($service->delete()) {
+            return redirect()->route('service.index')->with('message', "Service deleted successfully");
+        }
+        return redirect()->route('service.index')->with('message', "unable to delete Service");
     }
 }
