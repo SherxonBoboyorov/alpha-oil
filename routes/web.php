@@ -15,6 +15,9 @@ use App\Http\Controllers\Admin\OptionsController;
 use UniSharp\Laravel\LaravelFilemanager\Lfm;
 
 
+use App\Http\Controllers\Front\IndexController;
+
+
 
 
 
@@ -42,7 +45,7 @@ Route::group(
         'prefix' => LaravelLocalization::setLocale(),
         'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
     ], function(){
-         /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
+         Route::get('/', [IndexController::class, 'homepage'])->name('/');
  });
 
 

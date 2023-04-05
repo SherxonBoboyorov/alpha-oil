@@ -1,0 +1,24 @@
+// services_in start
+
+.services_in{
+    position: relative;
+    margin-bottom: 100px;
+
+    &__img{
+        @include fiximg(100%,auto,true);
+        margin-bottom: 50px;
+        img{
+            max-height: 600px;
+            object-position: center center;
+            min-height: 200px;
+        }
+    }
+}
+
+// services_in end
+
+@media (max-width:1200px){
+    .services_in__img{
+        margin-bottom: 30px;
+    }
+}

@@ -1,0 +1,107 @@
+// about start
+
+.about{
+    position: relative;
+    padding-top: 180px;
+    padding-bottom: 90px;
+    margin-bottom: 100px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+
+    .products__title__h2{
+        color:$link;
+    }
+
+    &__menu{
+        display: flex;
+        align-items: center;
+        grid-gap: 15px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+
+        li{
+            position: relative;
+        }
+
+        li+li{
+            padding-left: 23px;
+            &::before{
+                content: "";
+                display: block;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                width: 8px;
+                height: 2px;
+                background-color: $link;
+                transform: translate(0,-50%);
+                -webkit-transform: translate(0,-50%);
+                -moz-transform: translate(0,-50%);
+                -ms-transform: translate(0,-50%);
+                -o-transform: translate(0,-50%);
+            }
+        }
+    }
+
+    &__menu__link{
+        @include fontAll(18px,400,$link);
+        line-height: 135%;
+    }
+}
+
+// about end
+
+// about_contint start
+
+.about_contint{
+    position: relative;
+    margin-bottom: 100px;
+
+    &__text{
+        @include fontAll(1rem,400,$text);
+        line-height: 150%;
+        text-align: justify;
+
+        h1,h2,h3,h4,h5,h6,em,strong{
+            font-size: 110%;
+            color:$title;
+            font-weight: 700;
+            font-style: normal;
+            display: inline-block;
+        }
+    
+        a{
+            font-size: 110%;
+            color:$title;
+            font-weight: 700;
+            font-style: normal;
+            display: inline-block;
+        }
+    
+        img{
+            width: 100%;
+            height: auto;
+            max-height: 750px;
+            min-height: 200px;
+            object-fit: cover;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+// about_contint end
+
+
+@media (max-width:1200px){
+    .about {
+        padding-top: 140px;
+        padding-bottom: 50px;
+    }
+
+    .about__menu__link {
+        font-size: 16px;
+    }
+}
