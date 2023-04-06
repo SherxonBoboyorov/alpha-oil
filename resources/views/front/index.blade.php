@@ -2,46 +2,23 @@
 
 @section('content')
 
-
     <!-- slider start -->
 
     <div class="slider">
         <div class="slider__list">
-            <div class="slider__item" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 31.77%), linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(foto/slick_1.jpeg);">
+          @foreach ($sliders as $slider)
+            <div class="slider__item" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 31.77%), linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url({{ asset($slider->image) }});">
                 <section class="container">
                     <div class="slider__cart">
-                        <h1 class="slider__title__h1">Lorem ipsum dolor</h1>
+                        <h1 class="slider__title__h1">{{ $slider->{'title_' . app()->getLocale()} }}</h1>
                         <div class="slider__text">
-                            <p>Сonsectetur adipiscing elit, sed do eiusmod</p>
+                            <p>{{ $slider->{'description_' . app()->getLocale()} }}</p>
                         </div>
-                        <a href="#!" class="slider__link">Подробнее</a>
+                        <a href="{{ $slider->link }}" class="slider__link">Подробнее</a>
                     </div>
                 </section>
             </div>
-
-            <div class="slider__item" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 31.77%), linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(foto/slick_2.jpg);">
-                <section class="container">
-                    <div class="slider__cart">
-                        <h1 class="slider__title__h1">Сonsectetur adipiscing elit, sed do eiusmod</h1>
-                        <div class="slider__text">
-                            <p>High quality training</p>
-                        </div>
-                        <a href="#!" class="slider__link">Подробнее</a>
-                    </div>
-                </section>
-            </div>
-
-            <div class="slider__item" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 31.77%), linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(foto/slick_3.jpg);">
-                <section class="container">
-                    <div class="slider__cart">
-                        <h1 class="slider__title__h1">Good future</h1>
-                        <div class="slider__text">
-                            <p>Сonsectetur adipiscing elit, sed do eiusmod</p>
-                        </div>
-                        <a href="#!" class="slider__link">Подробнее</a>
-                    </div>
-                </section>
-            </div>
+           @endforeach
         </div>
     </div>
 
@@ -130,15 +107,17 @@
                     </div>
 
                     <div class="products__about">
+                        @foreach ($pages as $page)
                         <h2 class="products__title__h2">О нас</h2>
                         <div class="products__about__text">
                             <p>
-                                Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque <a href="#!">laudantium</a>, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione.
+                                {!! $page->{'content_' . app()->getLocale()} !!}
                             </p>
                         </div>
-                        <a href="about.html" class="products__about__link">
+                        <a href="{{ route('about') }}" class="products__about__link">
                             Подробнее
                         </a>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -155,55 +134,20 @@
                 <h2 class="products__title__h2">Процесс сотрудничества</h2>
 
                 <div class="collaboration__list">
+                    @foreach ($collaborations as $collaboration)
 
                     <div class="collaboration__item">
                         <div class="collaboration__img">
                             <h4 class="collaboration__number">
-                                01
+                                {{ $loop->iteration}}
                             </h4>
-                            <img src="foto/icons/collaboration_1.svg" alt="collaboration">
+                            <img src="{{ asset($collaboration->image) }}" alt="collaboration">
                         </div>
                         <h3 class="collaboration__title__h3">
-                            Отправка заявки
+                            {{ $collaboration->{'title_' . app()->getLocale()} }}
                         </h3>
                     </div>
-
-                    <div class="collaboration__item">
-                        <div class="collaboration__img">
-                            <h4 class="collaboration__number">
-                                02
-                            </h4>
-                            <img src="foto/icons/collaboration_2.svg" alt="collaboration">
-                        </div>
-                        <h3 class="collaboration__title__h3">
-                            Договор и оплата
-                        </h3>
-                    </div>
-
-                    <div class="collaboration__item">
-                        <div class="collaboration__img">
-                            <h4 class="collaboration__number">
-                                03
-                            </h4>
-                            <img src="foto/icons/collaboration_3.svg" alt="collaboration">
-                        </div>
-                        <h3 class="collaboration__title__h3">
-                            Доставка топлива
-                        </h3>
-                    </div>
-
-                    <div class="collaboration__item">
-                        <div class="collaboration__img">
-                            <h4 class="collaboration__number">
-                                04
-                            </h4>
-                            <img src="foto/icons/collaboration_4.svg" alt="collaboration">
-                        </div>
-                        <h3 class="collaboration__title__h3">
-                            Результат
-                        </h3>
-                    </div>
-
+                    @endforeach
                 </div>
 
             </div>
@@ -218,18 +162,19 @@
         <section class="container">
             <div class="services__cart">
                 <div class="services__list">
+                  @foreach ($services as $service)
                     <div class="services__item">
                         <div class="services__item__video">
                             <p class="text-center">
-                                <a data-fancybox href="https://youtu.be/t-siIJiIuyg?list=RDGMEMQ1dJ7wXfLlqCjwV0xfSNbAVMYwtzaVOcI54&t=3">
-                                    <img class="inline" width="500" alt="" src="foto/Services.png"/>
+                                <a data-fancybox href="{{ $service->frame }}">
+                                    <img class="inline" width="500" alt="" src="{{ asset($service->image) }}"/>
                                     <!-- play start -->
 
                                     <div class="button__min is-play" href="#">
                                         <div class="button-outer-circle has-scale-animation"></div>
                                         <div class="button-outer-circle has-scale-animation has-delay-short"></div>
                                         <div class="button-icon is-play">
-                                            <img class="services__item__img__play" alt="All" src="foto/icons/pley.svg">
+                                            <img class="services__item__img__play" alt="All" src="{{ asset('front/foto/icons/pley.svg') }}">
                                         </div>
                                     </div>
                                     <!-- play end -->
@@ -242,7 +187,7 @@
                         <h2 class="products__title__h2">Услуги</h2>
                         <div class="services__text">
                             <p>
-                                Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint.
+                                {!! $service->{'content_' . app()->getLocale()} !!}
                             </p>
                         </div>
 
@@ -250,6 +195,7 @@
                             <a href="services.html" class="services__link">Подробнее</a>
                         </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </section>
@@ -265,47 +211,23 @@
                 <h2 class="products__title__h2">Блог</h2>
 
                 <div class="blog__list">
-
+                    @foreach ($blogs as $blog)
                     <div class="blog__item">
-                        <a href="blog_in.html">
+                        <a href="{{ route('blog', $blog->{'slug_' . app()->getLocale()}) }}">
                             <div class="blog__item__img">
-                                <img src="foto/blog_1.png" alt="blog">
+                                <img src="{{ asset($blog->image) }}" alt="blog">
                             </div>
-                            <h4 class="blog__data">02.12.2021</h4>
+                            <h4 class="blog__data">{{  date('d.m.Y', strtotime($blog->created_at)) }}</h4>
                             <div class="blog__text">
-                                <p>Lorem ipsum dolor sit amet, consectetur</p>
+                                <p>{{ $blog->{'title_' . app()->getLocale()} }}</p>
                             </div>
                         </a>
-                    </div>
-
-                    <div class="blog__item">
-                        <a href="blog_in.html">
-                            <div class="blog__item__img">
-                                <img src="foto/blog_2.png" alt="blog">
-                            </div>
-                            <h4 class="blog__data">02.12.2021</h4>
-                            <div class="blog__text">
-                                <p>Sed do eiusmod tempor incididunt ut labore</p>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="blog__item">
-                        <a href="blog_in.html">
-                            <div class="blog__item__img">
-                                <img src="foto/blog_3.png" alt="blog">
-                            </div>
-                            <h4 class="blog__data">02.12.2021</h4>
-                            <div class="blog__text">
-                                <p>Ut enim ad minim veniam, quis nostrud exercitation </p>
-                            </div>
-                        </a>
-                    </div>
-
+                   </div>
+                   @endforeach
                 </div>
 
                 <div class="blog__link__button">
-                    <a href="blog.html" class="blog__link">Все статьи</a>
+                    <a href="{{ route('blogs') }}" class="blog__link">Все статьи</a>
                 </div>
             </div>
         </section>

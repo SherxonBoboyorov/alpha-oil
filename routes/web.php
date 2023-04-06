@@ -16,6 +16,8 @@ use UniSharp\Laravel\LaravelFilemanager\Lfm;
 
 
 use App\Http\Controllers\Front\IndexController;
+use App\Http\Controllers\Front\AboutController;
+use App\Http\Controllers\Front\NewsController;
 
 
 
@@ -46,6 +48,9 @@ Route::group(
         'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
     ], function(){
          Route::get('/', [IndexController::class, 'homepage'])->name('/');
+         Route::get('about', [AboutController::class, 'about'])->name('about');
+         Route::get('blogs', [NewsController::class, 'list'])->name('blogs');
+         Route::get('blogs/{slug}', [NewsController::class, 'show'])->name('blog');
  });
 
 

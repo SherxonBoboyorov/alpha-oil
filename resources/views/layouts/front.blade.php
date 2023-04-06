@@ -31,14 +31,14 @@
                 <div class="header__cart">
                     <div class="header__list">
                         <div class="header__logo">
-                            <a href="index.html">
-                                <img src="foto/logo.svg" alt="logo">
+                            <a href="{{ route('/') }}">
+                                <img src="{{ asset('front/foto/logo.svg') }}" alt="logo">
                             </a>
                         </div>
 
                         <ul class="header__menu sidenav" id="slide-out">
                             <li>
-                                <a href="about.html" class="header__link">О нас</a>
+                                <a href="{{ route('about') }}" class="header__link">О нас</a>
                             </li>
 
                             <li>
@@ -73,7 +73,7 @@
                             </li>
 
                             <li>
-                                <a href="blog.html" class="header__link">Блог</a>
+                                <a href="{{ route('blogs') }}" class="header__link">Блог</a>
                             </li>
 
                             <li>
@@ -130,7 +130,7 @@
      <!-- footer start -->
 
      <footer>
-        <div class="footer" style="background-image:url(foto/footer.png)">
+        <div class="footer" style="background-image:url({{ asset('front/foto/footer.png') }})">
             <section class="container">
                 <div class="footer__cart__list">
                     <div class="footer__list">
@@ -138,8 +138,8 @@
 
                             <div class="footer__cart">
                                 <div class="footer__logo">
-                                    <a href="index.html">
-                                        <img src="foto/logo.svg" alt="logo">
+                                    <a href="{{ route('/') }}">
+                                        <img src="{{ asset('front/foto/logo.svg') }}" alt="logo">
                                     </a>
                                 </div>
 
