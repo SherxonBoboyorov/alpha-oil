@@ -25,7 +25,7 @@ class CreateProductDocument extends FormRequest
     {
         return [
             'product_id' => 'required',
-            'image' => 'required|image|mimes:png,jpg,webp,jpeg',
+            'image' => 'required|file|mimes:csv,txt,xlx,xls,pdf,docx,zip,eps,ffx,jpg,png,webp',
             'title_ru' => 'required|max:255',
             'title_en' => 'required|max:255',
             'title_uz' => 'required|max:255',

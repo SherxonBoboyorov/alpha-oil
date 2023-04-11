@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\RefineryController;
 use App\Http\Controllers\Admin\OptionsController;
 use App\Http\Controllers\Admin\OfficeController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ProductDocumentController;
 use UniSharp\Laravel\LaravelFilemanager\Lfm;
 
 
@@ -47,6 +48,7 @@ Route::middleware(['role:admin'])->prefix('dashboard')->group(static function ()
         'options' => OptionsController::class,
         'office' => OfficeController::class,
         'product' => ProductController::class,
+        'productdocument' => ProductDocumentController::class,
     ]);
 });
 

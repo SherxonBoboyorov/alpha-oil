@@ -28,4 +28,9 @@ class Product extends Model
         'meta_description_en',
     ];
 
+    public function product_documents()
+    {
+        return $this->hasMany(ProductDocument::class);
+    }
+
 }

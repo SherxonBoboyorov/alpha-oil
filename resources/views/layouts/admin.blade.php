@@ -60,7 +60,7 @@
                     {{-- end  --}}
 
                     {{-- start  --}}
-                    <li class="nav-item">
+                     <li class="nav-item">
                         <a href="{{ route('article.index') }}" class="nav-link">
                         <i class="nav-icon"></i>
                         <p>
@@ -69,7 +69,7 @@
                         </p>
                         </a>
                      </li>
-                    {{-- end  --}}
+                     {{-- end  --}}
 
 
                       {{-- start  --}}
@@ -96,6 +96,17 @@
                      </li>
                     {{-- end  --}}
 
+                    {{-- start  --}}
+                     <li class="nav-item">
+                        <a href="{{ route('productdocument.index') }}" class="nav-link">
+                        <i class="nav-icon"></i>
+                        <p>
+                            Product Documents
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                        </a>
+                     </li>
+                    {{-- end  --}}
 
 
                     {{-- start  --}}
