@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\File;
 
 class Product extends Model
 {
@@ -18,9 +17,6 @@ class Product extends Model
         'title_ru',
         'title_uz',
         'title_en',
-        'slug_ru',
-        'slug_uz',
-        'slug_en',
         'description_ru',
         'description_uz',
         'description_en',

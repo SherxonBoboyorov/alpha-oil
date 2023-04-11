@@ -46,7 +46,7 @@
                             <tr>
                                 <td>{{ $product->id }}</td>
                                 <td>
-                                    <img src="{{ asset($product->icon_img) }}" alt="" width="35" height="35">
+                                    <img src="/image/iconimg/{{ ($product->icon_img) }}" alt="" width="35" height="35">
                                 </td>
                                 <td>{{ $product->title_ru }}</td>
                                 <td>{{ $product->title_uz }}</td>

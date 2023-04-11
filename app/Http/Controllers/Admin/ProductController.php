@@ -40,29 +40,33 @@ class ProductController extends Controller
         $request->validate([
             'icon_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
-            'title_ru' => 'required',
-            'title_uz' => 'required',
-            'title_en' => 'required',
+            'title_ru' => 'required|max:255',
+            'title_uz' => 'required|max:255',
+            'title_en' => 'required|max:255',
             'description_ru' => 'required',
             'description_uz' => 'required',
             'description_en' => 'required',
         ]);
 
-        $product = new Product();
+        $input = $request->all();
 
-        $product->icon_img = $request->file('icon_img')->store('uploads', 'public');
-        $product->image = $request->file('image')->store('uploads', 'public');
-        $product->title_ru = $request->title_ru;
-        $product->title_uz = $request->title_uz;
-        $product->title_en = $request->title_en;
-        $product->description_ru = $request->description_ru;
-        $product->description_uz = $request->description_uz;
-        $product->description_en = $request->description_en;
+        if ($icon_img = $request->file('icon_img')) {
+            $destinationPath = 'image/iconimg/';
+            $profileImage = date('YmdHis') . "." . $icon_img->getClientOriginalExtension();
+            $icon_img->move($destinationPath, $profileImage);
+            $input['icon_img'] = "$profileImage";
+        }
 
-        $product->save();
+        if ($image = $request->file('image')) {
+            $destinationPath = 'image/product';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['image'] = "$profileImage";
+        }
+
+        Product::create($input);
 
         return redirect()->route('product.index')->with('message', "Product created seccessfully");
-
     }
 
     /**
@@ -84,7 +88,9 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::find($id);
+        return view('admin.product.edit', compact('product'));
+
     }
 
     /**
@@ -94,9 +100,40 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
-        //
+        $request->validate([
+            'title_ru' => 'required|max:255',
+            'title_uz' => 'required|max:255',
+            'title_en' => 'required|max:255',
+            'description_ru' => 'required',
+            'description_uz' => 'required',
+            'description_en' => 'required',
+        ]);
+
+        $input = $request->all();
+
+        if ($icon_img = $request->file('icon_img')) {
+            $destinationPath = 'image/iconimg/';
+            $profileImage = date('YmdHis') . "." . $icon_img->getClientOriginalExtension();
+            $icon_img->move($destinationPath, $profileImage);
+            $input['icon_img'] = "$profileImage";
+        }else{
+            unset($input['icon_img']);
+        }
+
+        if ($image = $request->file('image')) {
+            $destinationPath = 'image/product';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['image'] = "$profileImage";
+        }else{
+            unset($input['image']);
+        }
+
+        $product->update($input);
+
+        return redirect()->route('product.index')->with('message', "Product updated seccessfully");
     }
 
     /**
@@ -105,8 +142,11 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        //
+        $product->delete();
+
+        return redirect()->route('product.index')
+                 ->with('message','Product deleted successfully');
     }
 }

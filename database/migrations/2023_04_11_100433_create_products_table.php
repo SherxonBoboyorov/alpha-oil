@@ -23,10 +23,6 @@ return new class extends Migration
             $table->string('title_uz');
             $table->string('title_en');
 
-            $table->string('slug_ru');
-            $table->string('slug_uz');
-            $table->string('slug_en');
-
             $table->text('description_ru');
             $table->text('description_uz');
             $table->text('description_en');
