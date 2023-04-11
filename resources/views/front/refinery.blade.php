@@ -14,7 +14,7 @@
                     </li>
 
                     <li>
-                        <a  class="about__menu__link">НПЗ</a>
+                        <a class="about__menu__link">НПЗ</a>
                     </li>
                 </ul>
             </div>
@@ -29,77 +29,21 @@
         <section class="container">
             <div class="refinery__cart">
                 <div class="refinery__list">
+                    @foreach ($refineries as $refinery)
                     <div class="refinery__item__list">
                         <div class="refinery__img__item">
-                            <img src="foto/refinery_1.png" alt="refinery">
+                            <img src="{{ asset($refinery->image) }}" alt="refinery">
                         </div>
                         <section>
-                            <h3 class="products__title__h3">Lorem ipsum dolor sit amet</h3>
+                            <h3 class="products__title__h3">{{ $refinery->{'title_' . app()->getLocale()} }}</h3>
                             <div class="about_contint__text">
-                                <p>Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+                                <p>
+                                    {!! $refinery->{'content_' . app()->getLocale()} !!}
+                                </p>
                             </div>
                         </section>
                     </div>
-
-                    <div class="refinery__item__list">
-                        <div class="refinery__img__item">
-                            <img src="foto/refinery_2.png" alt="refinery">
-                        </div>
-                        <section>
-                            <h3 class="products__title__h3">consectetur adipiscing elit</h3>
-                            <div class="about_contint__text">
-                                <p>Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-                            </div>
-                        </section>
-                    </div>
-
-                    <div class="refinery__item__list">
-                        <div class="refinery__img__item">
-                            <img src="foto/refinery_3.png" alt="refinery">
-                        </div>
-                        <section>
-                            <h3 class="products__title__h3">sed do eiusmod tempor incididunt</h3>
-                            <div class="about_contint__text">
-                                <p>Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-                            </div>
-                        </section>
-                    </div>
-
-                    <div class="refinery__item__list">
-                        <div class="refinery__img__item">
-                            <img src="foto/refinery_1.png" alt="refinery">
-                        </div>
-                        <section>
-                            <h3 class="products__title__h3">Lorem ipsum dolor sit amet</h3>
-                            <div class="about_contint__text">
-                                <p>Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-                            </div>
-                        </section>
-                    </div>
-
-                    <div class="refinery__item__list">
-                        <div class="refinery__img__item">
-                            <img src="foto/refinery_2.png" alt="refinery">
-                        </div>
-                        <section>
-                            <h3 class="products__title__h3">consectetur adipiscing elit</h3>
-                            <div class="about_contint__text">
-                                <p>Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-                            </div>
-                        </section>
-                    </div>
-
-                    <div class="refinery__item__list">
-                        <div class="refinery__img__item">
-                            <img src="foto/refinery_3.png" alt="refinery">
-                        </div>
-                        <section>
-                            <h3 class="products__title__h3">sed do eiusmod tempor incididunt</h3>
-                            <div class="about_contint__text">
-                                <p>Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-                            </div>
-                        </section>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>

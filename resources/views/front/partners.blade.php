@@ -29,85 +29,11 @@
         <section class="container">
             <div class="partnersIn__cart">
                 <div class="partnersIn__list">
+                  @foreach ($partners as $partner)
                     <div class="partnersIn__item__img">
-                        <img src="foto/our_partners_1.png" alt="partnersIn">
+                        <img src="{{ asset($partner->image) }}" alt="partnersIn">
                     </div>
-
-                    <div class="partnersIn__item__img">
-                        <img src="foto/our_partners_2.png" alt="partnersIn">
-                    </div>
-
-                    <div class="partnersIn__item__img">
-                        <img src="foto/our_partners_3.png" alt="partnersIn">
-                    </div>
-
-                    <div class="partnersIn__item__img">
-                        <img src="foto/our_partners_4.png" alt="partnersIn">
-                    </div>
-
-                    <div class="partnersIn__item__img">
-                        <img src="foto/our_partners_5.png" alt="partnersIn">
-                    </div>
-
-                    <div class="partnersIn__item__img">
-                        <img src="foto/our_partners_1.png" alt="partnersIn">
-                    </div>
-
-                    <div class="partnersIn__item__img">
-                        <img src="foto/our_partners_2.png" alt="partnersIn">
-                    </div>
-
-                    <div class="partnersIn__item__img">
-                        <img src="foto/our_partners_3.png" alt="partnersIn">
-                    </div>
-
-                    <div class="partnersIn__item__img">
-                        <img src="foto/our_partners_4.png" alt="partnersIn">
-                    </div>
-
-                    <div class="partnersIn__item__img">
-                        <img src="foto/our_partners_5.png" alt="partnersIn">
-                    </div>
-
-                    <div class="partnersIn__item__img">
-                        <img src="foto/our_partners_1.png" alt="partnersIn">
-                    </div>
-
-                    <div class="partnersIn__item__img">
-                        <img src="foto/our_partners_2.png" alt="partnersIn">
-                    </div>
-
-                    <div class="partnersIn__item__img">
-                        <img src="foto/our_partners_3.png" alt="partnersIn">
-                    </div>
-
-                    <div class="partnersIn__item__img">
-                        <img src="foto/our_partners_4.png" alt="partnersIn">
-                    </div>
-
-                    <div class="partnersIn__item__img">
-                        <img src="foto/our_partners_5.png" alt="partnersIn">
-                    </div>
-
-                    <div class="partnersIn__item__img">
-                        <img src="foto/our_partners_1.png" alt="partnersIn">
-                    </div>
-
-                    <div class="partnersIn__item__img">
-                        <img src="foto/our_partners_2.png" alt="partnersIn">
-                    </div>
-
-                    <div class="partnersIn__item__img">
-                        <img src="foto/our_partners_3.png" alt="partnersIn">
-                    </div>
-
-                    <div class="partnersIn__item__img">
-                        <img src="foto/our_partners_4.png" alt="partnersIn">
-                    </div>
-
-                    <div class="partnersIn__item__img">
-                        <img src="foto/our_partners_5.png" alt="partnersIn">
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>

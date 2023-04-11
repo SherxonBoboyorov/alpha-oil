@@ -192,7 +192,7 @@
                         </div>
 
                         <div class="about__link__button">
-                            <a href="services.html" class="services__link">Подробнее</a>
+                            <a href="{{ route('services') }}" class="services__link">Подробнее</a>
                         </div>
                     </div>
                     @endforeach
@@ -242,31 +242,11 @@
             <div class="our_partners__cart">
                 <h2 class="products__title__h2">партнеры</h2>
                 <div class="our_partners__list">
-
+                    @foreach ($partners as $partner)
                     <div class="our_partners__item">
-                        <img src="foto/our_partners_1.png" alt="our_partners">
+                        <img src="{{ asset($partner->image) }}" alt="our_partners">
                     </div>
-
-                    <div class="our_partners__item">
-                        <img src="foto/our_partners_2.png" alt="our_partners">
-                    </div>
-
-                    <div class="our_partners__item">
-                        <img src="foto/our_partners_3.png" alt="our_partners">
-                    </div>
-
-                    <div class="our_partners__item">
-                        <img src="foto/our_partners_4.png" alt="our_partners">
-                    </div>
-
-                    <div class="our_partners__item">
-                        <img src="foto/our_partners_5.png" alt="our_partners">
-                    </div>
-
-                    <div class="our_partners__item">
-                        <img src="foto/our_partners_1.png" alt="our_partners">
-                    </div>
-
+                  @endforeach
                 </div>
             </div>
         </section>

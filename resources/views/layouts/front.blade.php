@@ -69,7 +69,7 @@
                             </li>
 
                             <li>
-                                <a href="services.html" class="header__link">Услуги</a>
+                                <a href="{{ route('services') }}" class="header__link">Услуги</a>
                             </li>
 
                             <li>
@@ -77,15 +77,15 @@
                             </li>
 
                             <li>
-                                <a href="partners.html" class="header__link">Партнеры</a>
+                                <a href="{{ route('partners') }}" class="header__link">Партнеры</a>
                             </li>
 
                             <li>
-                                <a href="refinery.html" class="header__link">НПЗ</a>
+                                <a href="{{ route('refinery') }}" class="header__link">НПЗ</a>
                             </li>
 
                             <li>
-                                <a href="contacts.html" class="header__link">Контакты</a>
+                                <a href="{{ route('contact') }}" class="header__link">Контакты</a>
                             </li>
                         </ul>
 
@@ -95,24 +95,21 @@
                             <div class="header__ru">
 
                                 <div class="header__ru_cart dropdown-trigger"data-target='dropdown1'>
-                                    <a data-target='dropdown1' class="header__en__link">Ru</a>
+                                    <a data-target='dropdown1' class="header__en__link">{{ strtoupper(app()->getLocale()) }}</a>
                                     <span><i class="fas fa-angle-down"></i></span>
                                 </div>
 
                                 <div class="header__ru_none dropdown-content" id='dropdown1'>
-                                    <div class="header__ru_list active">
-                                        <a href="#!-1" class="header__en__link">Ru</a>
-                                    </div>
-
-                                    <div class="header__ru_list">
-                                        <a href="#!-2" class="header__en__link">En</a>
-                                    </div>
-
-                                    <div class="header__ru_list">
-                                        <a href="#!-3" class="header__en__link">O’z</a>
-                                    </div>
+                                    @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                        @if($localeCode != app()->getLocale())
+                                        <div class="header__ru_list @if($localeCode == app()->getLocale()) active @endif">
+                                            <a rel="alternate" class="header__en__link" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                                {{ strtoupper($localeCode) }}
+                                            </a>
+                                        </div>
+                                        @endif
+                                    @endforeach
                                 </div>
-
                             </div>
 
                             <!-- language start -->
@@ -145,15 +142,15 @@
 
                                 <ul class="footer__menu">
                                     <li>
-                                        <a href="#!" class="footer__menu__link"><i class="fab fa-instagram"></i></a>
+                                        <a href="{{ $options->where('key', 'instagram')->first()->value }}" class="footer__menu__link"><i class="fab fa-instagram"></i></a>
                                     </li>
 
                                     <li>
-                                        <a href="#!" class="footer__menu__link"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="{{ $options->where('key', 'facebook')->first()->value }}" class="footer__menu__link"><i class="fab fa-facebook-f"></i></a>
                                     </li>
 
                                     <li>
-                                        <a href="#!" class="footer__menu__link"><i class="fab fa-telegram-plane"></i></a>
+                                        <a href="{{ $options->where('key', 'telegram')->first()->value }}" class="footer__menu__link"><i class="fab fa-telegram-plane"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -161,13 +158,13 @@
                             <div class="footer__cart">
                                 <ul class="footer__menu__tel">
                                     <li>
-                                        <a href="tel:+998 94 505 45 05" class="footer__menu__tel__link"><span>Телефон:</span>+998 94 505 45 05</a>
+                                        <a href="tel:{{ $options->where('key', 'phone')->first()->value }}" class="footer__menu__tel__link"><span>Телефон:</span>{{ $options->where('key', 'phone')->first()->value }}</a>
                                     </li>
                                     <li>
-                                        <a class="footer__menu__tel__link"><span>Адрес:</span>Узбекистан, г. Ташкент, Ул. Садыка Азимова, 68</a>
+                                        <a class="footer__menu__tel__link"><span>Адрес:</span>{{ $options->where('key', 'address_' . app()->getLocale())->first()->value }}</a>
                                     </li>
                                     <li>
-                                        <a href="mailto:info@sos.uz" class="footer__menu__tel__link"><span>email:</span>info@sos.uz</a>
+                                        <a href="mailto:{{ $options->where('key', 'email')->first()->value }}" class="footer__menu__tel__link"><span>email:</span>{{ $options->where('key', 'email')->first()->value }}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -176,7 +173,7 @@
                         <div class="footer__item">
                             <ul class="footer__menu__max">
                                 <li>
-                                    <a href="about.html" class="footer__menu__max__link">О нас</a>
+                                    <a href="{{ route('about') }}" class="footer__menu__max__link">О нас</a>
                                 </li>
 
                                 <li>
@@ -184,25 +181,25 @@
                                 </li>
 
                                 <li>
-                                    <a href="services.html" class="footer__menu__max__link">Услуги</a>
+                                    <a href="{{ route('services') }}" class="footer__menu__max__link">Услуги</a>
                                 </li>
 
                                 <li>
-                                    <a href="blog.html" class="footer__menu__max__link">Блог</a>
+                                    <a href="{{ route('blogs') }}" class="footer__menu__max__link">Блог</a>
                                 </li>
                             </ul>
 
                             <ul class="footer__menu__max">
                                 <li>
-                                    <a href="partners.html" class="footer__menu__max__link">Партнеры</a>
+                                    <a href="{{ route('partners') }}" class="footer__menu__max__link">Партнеры</a>
                                 </li>
 
                                 <li>
-                                    <a href="refinery.html" class="footer__menu__max__link">НПЗ</a>
+                                    <a href="{{ route('refinery') }}" class="footer__menu__max__link">НПЗ</a>
                                 </li>
 
                                 <li>
-                                    <a href="contacts.html" class="footer__menu__max__link">Контакты</a>
+                                    <a href="{{ route('contact') }}" class="footer__menu__max__link">Контакты</a>
                                 </li>
                             </ul>
                         </div>
