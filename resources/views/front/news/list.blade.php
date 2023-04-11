@@ -44,7 +44,8 @@
                    @endforeach
                 </div>
 
-                <div class="blogIn__pagination">
+                {{ $blogs->links("vendor.pagination.pagination")}}
+                {{-- <div class="blogIn__pagination">
                     <ul class="blogIn__pagination__page">
                         <li>
                             <a href="#!" class="blogIn__pagination__link__left"><i class="fas fa-angle-double-left"></i></a>
@@ -68,7 +69,9 @@
                             <a href="#!" class="blogIn__pagination__link__left"><i class="fas fa-chevron-right"></i></a>
                         </li>
                     </ul>
-                </div>
+                </div> --}}
+
+
             </div>
         </section>
     </div>
