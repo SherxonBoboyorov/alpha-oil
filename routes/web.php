@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\RefineryController;
 use App\Http\Controllers\Admin\OptionsController;
 use App\Http\Controllers\Admin\OfficeController;
+use App\Http\Controllers\Admin\ProductController;
 use UniSharp\Laravel\LaravelFilemanager\Lfm;
 
 
@@ -21,7 +22,7 @@ use App\Http\Controllers\Front\AboutController;
 use App\Http\Controllers\Front\NewsController;
 use App\Http\Controllers\Front\PartnersController;
 use App\Http\Controllers\Front\ServicesController;
-use App\Http\Controllers\Front\ProductController;
+use App\Http\Controllers\Front\RefineriesController;
 use App\Http\Controllers\Front\ContactController;
 
 
@@ -45,6 +46,7 @@ Route::middleware(['role:admin'])->prefix('dashboard')->group(static function ()
         'refinery' => RefineryController::class,
         'options' => OptionsController::class,
         'office' => OfficeController::class,
+        'product' => ProductController::class,
     ]);
 });
 
@@ -60,7 +62,7 @@ Route::group(
          Route::get('blogs/{slug}', [NewsController::class, 'show'])->name('blog');
          Route::get('partners', [PartnersController::class, 'partner'])->name('partners');
          Route::get('services', [ServicesController::class, 'service'])->name('services');
-         Route::get('refinery', [ProductController::class, 'refinery'])->name('refinery');
+         Route::get('refinery', [RefineriesController::class, 'refinery'])->name('refinery');
          Route::get('contact', [ContactController::class, 'contact'])->name('contact');
  });
 

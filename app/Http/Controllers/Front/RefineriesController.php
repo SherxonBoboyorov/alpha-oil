@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Refinery;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class RefineriesController extends Controller
 {
     public function refinery()
     {

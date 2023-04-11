@@ -15,7 +15,6 @@ class IndexController extends Controller
 {
     public function homepage()
     {
-
         $sliders = Slider::orderBy('created_at', 'desc')->get();
         $pages = Page::all();
         $collaborations = Cooperation::orderBy('created_at', 'desc')->get();
