@@ -49,21 +49,11 @@
 
                                 <nav class="header__menu__none">
                                     <ul class="header__none__menu">
+                                        @foreach (\App\Models\Product::orderBy('created_at', "DESC")->get() as $product)
                                         <li>
-                                            <a href="products.html" class="header__link__none">Бензин</a>
+                                            <a href="#!" class="header__link__none">{{ $product->title }}</a>
                                         </li>
-
-                                        <li>
-                                            <a href="products.html" class="header__link__none">Дизель</a>
-                                        </li>
-
-                                        <li>
-                                            <a href="products.html" class="header__link__none">Битум</a>
-                                        </li>
-
-                                        <li>
-                                            <a href="products.html" class="header__link__none">Керосин</a>
-                                        </li>
+                                        @endforeach
                                     </ul>
                                 </nav>
                             </li>
@@ -177,7 +167,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="products.html" class="footer__menu__max__link">Продукция</a>
+                                    <a href="{{ route('products') }}" class="footer__menu__max__link">Продукция</a>
                                 </li>
 
                                 <li>

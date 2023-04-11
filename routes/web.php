@@ -25,6 +25,7 @@ use App\Http\Controllers\Front\PartnersController;
 use App\Http\Controllers\Front\ServicesController;
 use App\Http\Controllers\Front\RefineriesController;
 use App\Http\Controllers\Front\ContactController;
+use App\Http\Controllers\Front\ProductsController;
 
 
 
@@ -66,6 +67,7 @@ Route::group(
          Route::get('services', [ServicesController::class, 'service'])->name('services');
          Route::get('refinery', [RefineriesController::class, 'refinery'])->name('refinery');
          Route::get('contact', [ContactController::class, 'contact'])->name('contact');
+         Route::get('products', [ProductsController::class, 'products'])->name('products');
  });
 
 
