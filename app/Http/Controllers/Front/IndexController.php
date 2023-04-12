@@ -28,7 +28,7 @@ class IndexController extends Controller
         $services = Service::all();
         $blogs = Article::orderBy('created_at', 'desc')->paginate(3);
         $partners = Partner::orderBy('created_at', 'desc')->get();
-        $products = Product::orderBy('created_at', 'desc')->get();
+        $products = Product::orderBy('created_at', 'desc')->paginate(4);
         return view('front.index', compact(
             'sliders',
             'pages',

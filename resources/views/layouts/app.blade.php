@@ -44,7 +44,7 @@
 
     <style>
         body{
-            background-image: url('admin/dist/img/Rectangle 172.png');
+            background-image: url('admin/dist/img/Rectangle 78 (3).png');
             width: 100%;
             height: 100vh;
             background-position: center;
