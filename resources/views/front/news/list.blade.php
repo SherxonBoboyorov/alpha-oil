@@ -1,5 +1,7 @@
 @extends('layouts.front')
 
+<title>Alpha Oil</title>
+
 @section('content')
 
     <!-- about start -->

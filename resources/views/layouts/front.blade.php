@@ -19,7 +19,8 @@
     <link rel="stylesheet" href="{{ asset('front/css/owl.carousel.css') }}">
     <link rel="stylesheet" href="{{ asset('front/css/slick.css') }}">
     <link rel="stylesheet" href="{{ asset('front/css/index.css') }}">
-    <title>Alpha-Oil</title>
+    
+    {!! Meta::toHtml() !!}
 </head>
 <body>
 
@@ -49,9 +50,9 @@
 
                                 <nav class="header__menu__none">
                                     <ul class="header__none__menu">
-                                        @foreach (\App\Models\Product::orderBy('created_at', "DESC")->get() as $product)
+                                        @foreach(\App\Models\Product::all() as $product)
                                         <li>
-                                            <a href="#!" class="header__link__none">{{ $product->title }}</a>
+                                            <a href="{{ route('product', $product->id) }}" class="header__link__none">{{ $product->{'title_' . app()->getLocale()} }}</a>
                                         </li>
                                         @endforeach
                                     </ul>
@@ -167,7 +168,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('products') }}" class="footer__menu__max__link">Продукция</a>
+                                    <a href="{{ route('product', $product->id) }}" class="footer__menu__max__link">Продукция</a>
                                 </li>
 
                                 <li>

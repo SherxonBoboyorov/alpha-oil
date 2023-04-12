@@ -31,79 +31,25 @@
             <div class="products__cart">
                 <div class="products__list">
                     <div class="products__cart__list">
-
+                       @foreach ($products as $product)
                         <div class="products__item">
-                            <a href="products.html">
+                            <a href="{{ route('product', $product->id) }}">
                                 <div class="products__img">
-                                    <img src="foto/icons/products_1.svg" alt="products">
+                                    <img src="/image/iconimg/{{ ($product->icon_img) }}" alt="products">
                                 </div>
                                 <section>
                                     <h3 class="products__title__h3">
-                                        Бензин
+                                        {{ $product->{'title_' . app()->getLocale()} }}
                                     </h3>
                                     <div class="products__text">
                                         <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                                            {!! $product->{'description_' . app()->getLocale()} !!}
                                         </p>
                                     </div>
                                 </section>
                             </a>
                         </div>
-
-                        <div class="products__item">
-                            <a href="products.html">
-                                <div class="products__img">
-                                    <img src="foto/icons/products_2.svg" alt="products">
-                                </div>
-                                <section>
-                                    <h3 class="products__title__h3">
-                                        Дизель
-                                    </h3>
-                                    <div class="products__text">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                                        </p>
-                                    </div>
-                                </section>
-                            </a>
-                        </div>
-
-                        <div class="products__item">
-                            <a href="products.html">
-                                <div class="products__img">
-                                    <img src="foto/icons/products_3.svg" alt="products">
-                                </div>
-                                <section>
-                                    <h3 class="products__title__h3">
-                                        Битум
-                                    </h3>
-                                    <div class="products__text">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                                        </p>
-                                    </div>
-                                </section>
-                            </a>
-                        </div>
-
-                        <div class="products__item">
-                            <a href="products.html">
-                                <div class="products__img">
-                                    <img src="foto/icons/products_4.svg" alt="products">
-                                </div>
-                                <section>
-                                    <h3 class="products__title__h3">
-                                        Керосин
-                                    </h3>
-                                    <div class="products__text">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                                        </p>
-                                    </div>
-                                </section>
-                            </a>
-                        </div>
-
+                        @endforeach
                     </div>
 
                     <div class="products__about">

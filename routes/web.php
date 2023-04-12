@@ -68,6 +68,7 @@ Route::group(
          Route::get('refinery', [RefineriesController::class, 'refinery'])->name('refinery');
          Route::get('contact', [ContactController::class, 'contact'])->name('contact');
          Route::get('products', [ProductsController::class, 'products'])->name('products');
+         Route::get('products/{id}', [ProductsController::class, 'show'])->name('product');
  });
 
 
