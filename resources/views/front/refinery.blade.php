@@ -9,14 +9,14 @@
     <div class="about" style="background-image:url({{ asset('front/foto/about.png') }})">
         <section class="container">
             <div class="about__cart">
-                <h2 class="products__title__h2">НПЗ</h2>
+                <h2 class="products__title__h2">@lang('main.refinery')</h2>
                 <ul class="about__menu">
                     <li>
-                        <a href="{{ route('/') }}" class="about__menu__link">Главная</a>
+                        <a href="{{ route('/') }}" class="about__menu__link">@lang('main.homepage')</a>
                     </li>
 
                     <li>
-                        <a class="about__menu__link">НПЗ</a>
+                        <a class="about__menu__link">@lang('main.refinery')</a>
                     </li>
                 </ul>
             </div>

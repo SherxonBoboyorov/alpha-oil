@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="{{ asset('front/css/owl.carousel.css') }}">
     <link rel="stylesheet" href="{{ asset('front/css/slick.css') }}">
     <link rel="stylesheet" href="{{ asset('front/css/index.css') }}">
-    
+
     {!! Meta::toHtml() !!}
 </head>
 <body>
@@ -39,12 +39,12 @@
 
                         <ul class="header__menu sidenav" id="slide-out">
                             <li>
-                                <a href="{{ route('about') }}" class="header__link">О нас</a>
+                                <a href="{{ route('about') }}" class="header__link">@lang('main.about_us')</a>
                             </li>
 
                             <li>
                                 <h4 class="header__menu__links">
-                                    Продукция
+                                    @lang('main.products')
                                     <span><i class="fas fa-chevron-down"></i></span>
                                 </h4>
 
@@ -60,23 +60,23 @@
                             </li>
 
                             <li>
-                                <a href="{{ route('services') }}" class="header__link">Услуги</a>
+                                <a href="{{ route('services') }}" class="header__link">@lang('main.services')</a>
                             </li>
 
                             <li>
-                                <a href="{{ route('blogs') }}" class="header__link">Блог</a>
+                                <a href="{{ route('blogs') }}" class="header__link">@lang('main.blog')</a>
                             </li>
 
                             <li>
-                                <a href="{{ route('partners') }}" class="header__link">Партнеры</a>
+                                <a href="{{ route('partners') }}" class="header__link">@lang('main.partners')</a>
                             </li>
 
                             <li>
-                                <a href="{{ route('refinery') }}" class="header__link">НПЗ</a>
+                                <a href="{{ route('refinery') }}" class="header__link">@lang('main.refinery')</a>
                             </li>
 
                             <li>
-                                <a href="{{ route('contact') }}" class="header__link">Контакты</a>
+                                <a href="{{ route('contact') }}" class="header__link">@lang('main.contacts')</a>
                             </li>
                         </ul>
 
@@ -149,13 +149,13 @@
                             <div class="footer__cart">
                                 <ul class="footer__menu__tel">
                                     <li>
-                                        <a href="tel:{{ $options->where('key', 'phone')->first()->value }}" class="footer__menu__tel__link"><span>Телефон:</span>{{ $options->where('key', 'phone')->first()->value }}</a>
+                                        <a href="tel:{{ $options->where('key', 'phone')->first()->value }}" class="footer__menu__tel__link"><span>@lang('main.telephone'):</span>{{ $options->where('key', 'phone')->first()->value }}</a>
                                     </li>
                                     <li>
-                                        <a class="footer__menu__tel__link"><span>Адрес:</span>{{ $options->where('key', 'address_' . app()->getLocale())->first()->value }}</a>
+                                        <a class="footer__menu__tel__link"><span>@lang('main.address'):</span>{{ $options->where('key', 'address_' . app()->getLocale())->first()->value }}</a>
                                     </li>
                                     <li>
-                                        <a href="mailto:{{ $options->where('key', 'email')->first()->value }}" class="footer__menu__tel__link"><span>email:</span>{{ $options->where('key', 'email')->first()->value }}</a>
+                                        <a href="mailto:{{ $options->where('key', 'email')->first()->value }}" class="footer__menu__tel__link"><span>@lang('main.email'):</span>{{ $options->where('key', 'email')->first()->value }}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -164,33 +164,33 @@
                         <div class="footer__item">
                             <ul class="footer__menu__max">
                                 <li>
-                                    <a href="{{ route('about') }}" class="footer__menu__max__link">О нас</a>
+                                    <a href="{{ route('about') }}" class="footer__menu__max__link">@lang('main.about_us')</a>
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('product', $product->id) }}" class="footer__menu__max__link">Продукция</a>
+                                    <a href="{{ route('product', $product->id) }}" class="footer__menu__max__link">@lang('main.products')</a>
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('services') }}" class="footer__menu__max__link">Услуги</a>
+                                    <a href="{{ route('services') }}" class="footer__menu__max__link">@lang('main.services')</a>
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('blogs') }}" class="footer__menu__max__link">Блог</a>
+                                    <a href="{{ route('blogs') }}" class="footer__menu__max__link">@lang('main.blog')</a>
                                 </li>
                             </ul>
 
                             <ul class="footer__menu__max">
                                 <li>
-                                    <a href="{{ route('partners') }}" class="footer__menu__max__link">Партнеры</a>
+                                    <a href="{{ route('partners') }}" class="footer__menu__max__link">@lang('main.partners')</a>
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('refinery') }}" class="footer__menu__max__link">НПЗ</a>
+                                    <a href="{{ route('refinery') }}" class="footer__menu__max__link">@lang('main.refinery')</a>
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('contact') }}" class="footer__menu__max__link">Контакты</a>
+                                    <a href="{{ route('contact') }}" class="footer__menu__max__link">@lang('main.contacts')</a>
                                 </li>
                             </ul>
                         </div>
@@ -202,11 +202,11 @@
                 <section class="container">
                         <div class="footer__bottom__list">
                             <h4 class="footer__bottom__title">
-                                «Aurora NRG» Все права защищены
+                                «Alpha Oil» @lang('main.all_rights_reserved')
                             </h4>
 
                             <h4 class="footer__bottom__title">
-                                © Copyright 2021 - Web developed by <a href="https://sos.uz" target="_blank">SOS Group</a>
+                                © Copyright {{ date("Y") }} - Web developed by <a href="https://sos.uz" target="_blank">SOS Group</a>
                             </h4>
                         </div>
                 </section>

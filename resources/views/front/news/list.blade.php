@@ -9,14 +9,14 @@
     <div class="about" style="background-image:url({{ asset('front/foto/about.png') }})">
         <section class="container">
             <div class="about__cart">
-                <h2 class="products__title__h2">Блог</h2>
+                <h2 class="products__title__h2">@lang('main.blog')</h2>
                 <ul class="about__menu">
                     <li>
-                        <a href="{{ route('/') }}" class="about__menu__link">Главная</a>
+                        <a href="{{ route('/') }}" class="about__menu__link">@lang('main.homepage')</a>
                     </li>
 
                     <li>
-                        <a class="about__menu__link">Блог</a>
+                        <a class="about__menu__link">@lang('main.blog')</a>
                     </li>
                 </ul>
             </div>
@@ -47,33 +47,7 @@
                 </div>
 
                 {{ $blogs->links("vendor.pagination.pagination")}}
-                {{-- <div class="blogIn__pagination">
-                    <ul class="blogIn__pagination__page">
-                        <li>
-                            <a href="#!" class="blogIn__pagination__link__left"><i class="fas fa-angle-double-left"></i></a>
-                        </li>
-
-                        <li>
-                            <a href="#!" class="blogIn__pagination__link__left"><i class="fas fa-chevron-left"></i></a>
-                        </li>
-
-                        <ul class="blogIn__pagination__page__mrx">
-                            <li><a href="#!" class="blogIn__pagination__link active">1</a></li>
-                            <li><a href="#!" class="blogIn__pagination__link">2</a></li>
-                            <li><a href="#!" class="blogIn__pagination__link">3</a></li>
-                        </ul>
-
-                        <li>
-                            <a href="#!" class="blogIn__pagination__link__left"><i class="fas fa-angle-double-right"></i></a>
-                        </li>
-
-                        <li>
-                            <a href="#!" class="blogIn__pagination__link__left"><i class="fas fa-chevron-right"></i></a>
-                        </li>
-                    </ul>
-                </div> --}}
-
-
+            
             </div>
         </section>
     </div>

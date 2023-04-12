@@ -10,7 +10,7 @@
                 <h2 class="products__title__h2">{{ $blog->{'title_' . app()->getLocale()} }}</h2>
                 <ul class="about__menu">
                     <li>
-                        <a href="{{ route('blogs') }}" class="about__menu__link">Блог</a>
+                        <a href="{{ route('blogs') }}" class="about__menu__link">@lang('main.blog')</a>
                     </li>
 
                     <li>

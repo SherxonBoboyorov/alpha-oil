@@ -14,7 +14,7 @@
                         <div class="slider__text">
                             <p>{{ $slider->{'description_' . app()->getLocale()} }}</p>
                         </div>
-                        <a href="{{ $slider->link }}" class="slider__link">Подробнее</a>
+                        <a href="{{ $slider->link }}" class="slider__link">@lang('main.more')</a>
                     </div>
                 </section>
             </div>
@@ -54,14 +54,14 @@
 
                     <div class="products__about">
                         @foreach ($pages as $page)
-                        <h2 class="products__title__h2">О нас</h2>
+                        <h2 class="products__title__h2">@lang('main.about_us')</h2>
                         <div class="products__about__text">
                             <p>
                                 {!! $page->{'content_' . app()->getLocale()} !!}
                             </p>
                         </div>
                         <a href="{{ route('about') }}" class="products__about__link">
-                            Подробнее
+                            @lang('main.more')
                         </a>
                         @endforeach
                     </div>
@@ -77,7 +77,7 @@
     <div class="collaboration">
         <section class="container">
             <div class="collaboration__cart">
-                <h2 class="products__title__h2">Процесс сотрудничества</h2>
+                <h2 class="products__title__h2">@lang('main.collaboration_process')</h2>
 
                 <div class="collaboration__list">
                     @foreach ($collaborations as $collaboration)
@@ -130,7 +130,7 @@
                     </div>
 
                     <div class="services__item__text">
-                        <h2 class="products__title__h2">Услуги</h2>
+                        <h2 class="products__title__h2">@lang('main.services')</h2>
                         <div class="services__text">
                             <p>
                                 {!! $service->{'content_' . app()->getLocale()} !!}
@@ -138,7 +138,7 @@
                         </div>
 
                         <div class="about__link__button">
-                            <a href="{{ route('services') }}" class="services__link">Подробнее</a>
+                            <a href="{{ route('services') }}" class="services__link">@lang('main.more')</a>
                         </div>
                     </div>
                     @endforeach
@@ -154,7 +154,7 @@
     <div class="blog">
         <section class="container">
             <div class="blog__cart">
-                <h2 class="products__title__h2">Блог</h2>
+                <h2 class="products__title__h2">@lang('main.blog')</h2>
 
                 <div class="blog__list">
                     @foreach ($blogs as $blog)
@@ -173,7 +173,7 @@
                 </div>
 
                 <div class="blog__link__button">
-                    <a href="{{ route('blogs') }}" class="blog__link">Все статьи</a>
+                    <a href="{{ route('blogs') }}" class="blog__link">@lang('main.all_articles')</a>
                 </div>
             </div>
         </section>
@@ -186,7 +186,7 @@
     <div class="our_partners">
         <section class="container">
             <div class="our_partners__cart">
-                <h2 class="products__title__h2">партнеры</h2>
+                <h2 class="products__title__h2">@lang('main.partners')</h2>
                 <div class="our_partners__list">
                     @foreach ($partners as $partner)
                     <div class="our_partners__item">
