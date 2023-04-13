@@ -20,12 +20,12 @@
     <div id="app" class="header__app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{'Sunmort-Imports'}}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                {{-- <a class="navbar-brand" href="{{ url('/') }}">
+                    {{'Alpha Oil'}}
+                </a> --}}
+                {{-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
-                </button>
+                </button> --}}
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
@@ -41,7 +41,7 @@
             @yield('content')
         </main>
     </div>
-
+{{--
     <style>
         body{
             background-image: url('admin/dist/img/Rectangle 78 (3).png');
@@ -77,6 +77,6 @@
 
 
 
-    </style>
+    </style> --}}
 </body>
 </html>
