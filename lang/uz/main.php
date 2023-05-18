@@ -18,6 +18,9 @@ return [
     'collaboration_process' => 'Hamkorlik jarayoni',
     'all_articles' => 'Barcha maqolalar',
     'homepage' => 'Bosh sahifa',
-    'head_office_in_tashkent_city' => 'Toshkent shahridagi bosh ofis'
-
+    'head_office_in_tashkent_city' => 'Toshkent shahridagi bosh ofis',
+    'abdullaev_farruh' => 'Abdullayev Farruh',
+    'ceo' => 'Direktor',
+    'kirgizboev_javlon' => 'Kirgizboyev Javlon',
+    'sales_manager' => 'Sotuv menejeri'
 ];

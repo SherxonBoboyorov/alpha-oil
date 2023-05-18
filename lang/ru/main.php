@@ -19,6 +19,10 @@ return [
     'collaboration_process' => 'Процесс сотрудничества',
     'all_articles' => 'Все статьи',
     'homepage' => 'Главная',
-    'head_office_in_tashkent_city' => 'Головной офис в городе ташкент'
+    'head_office_in_tashkent_city' => 'Головной офис в городе ташкент',
+    'abdullaev_farruh' => 'Абдуллаев Фаррух',
+    'ceo' => 'Директор',
+    'kirgizboev_javlon' => 'Киргизбоев Жавлон',
+    'sales_manager' => 'Менеджер по продажам'
 
 ];

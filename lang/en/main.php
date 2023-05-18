@@ -19,6 +19,10 @@ return [
     'collaboration_process' => 'Collaboration Process',
     'all_articles' => 'All articles',
     'homepage' => 'Homepage',
-    'head_office_in_tashkent_city' => 'Head office in tashkent city'
+    'head_office_in_tashkent_city' => 'Head office in tashkent city',
+    'abdullaev_farruh' => 'Abdullaev Farruh',
+    'ceo' => 'CEO',
+    'kirgizboev_javlon' => 'Kirgizboev Javlon',
+    'sales_manager' => 'Sales manager'
 
 ];

@@ -49,6 +49,20 @@
                                 <a href="mailto:{{ $options->where('key', 'email')->first()->value }}" class="contacts__list__link">{{ $options->where('key', 'email')->first()->value }}</a>
                             </li>
                         </ul>
+
+                        <ul class="contacts__list__name">
+                            <li>
+                                <h3 class="contacts__name">@lang('main.abdullaev_farruh')</h3>
+                                <h4 class="contacts__title__h4">@lang('main.ceo')</h4>
+                                <a href="tel:+998 93 486 66 66" class="contacts__list__link">+998 93 486 66 66</a>
+                            </li>
+
+                            <li>
+                                <h3 class="contacts__name">@lang('main.kirgizboev_javlon')</h3>
+                                <h4 class="contacts__title__h4">@lang('main.sales_manager')</h4>
+                                <a href="tel:+998 94 666 77 44" class="contacts__list__link">+998 94 666 77 44</a>
+                            </li>
+                        </ul>
                     </section>
                     <div class="contacts__maps">
                         {!! $options->where('key', 'map')->first()->value !!}
